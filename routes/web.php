@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//注册
+Route::any('/reg', 'User\UserController@reg');
+
+Route::post('/api', 'User\UserController@login');
