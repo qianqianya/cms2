@@ -31,7 +31,7 @@ class UserController extends Controller
         curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
         $res=curl_exec($ch);
         curl_close($ch);
-        var_dump($res);
+        echo json_encode($res);
 
     }
     public function reg(Request $request)
