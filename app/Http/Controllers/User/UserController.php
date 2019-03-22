@@ -14,11 +14,13 @@ class UserController extends Controller
     {
         $u_email = $request->input('u_email');
         $u_pwd = $request->input('u_pwd');
+        $type = $request->input('type');
 
         //$res = userModel::where(['u_email' => $u_email, 'u_pwd' => $u_pwd])->first();
         $data=[
-        'u_email'=>$u_email,
-        'u_pwd'=>$u_pwd
+            'u_email'=>$u_email,
+            'u_pwd'=>$u_pwd,
+            'type'=>$type
         ];
         //echo json_encode($data);die;
         $url='http://passport.qianqianya.xyz/api/passport';
