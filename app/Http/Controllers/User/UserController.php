@@ -30,15 +30,9 @@ class UserController extends Controller
         $res=curl_exec($ch);
         curl_close($ch);
         $res=json_encode($res,true);
-        if($res['error']==0){
-            $res=[
-                'error'=>0,
-                'msg'=>'登陆成功',
-                'token'=>$res['token']
-            ];
+        if($res){
+            echo '登陆成功';
         }
-        return $res;
-
     }
     public function reg(Request $request)
     {
