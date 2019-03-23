@@ -22,4 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //注册
 Route::any('/reg', 'User\UserController@reg');
 
+//登陆
+Route::post('/api', 'User\UserController@login');
+
+//退出
 Route::post('/api', 'User\UserController@login');

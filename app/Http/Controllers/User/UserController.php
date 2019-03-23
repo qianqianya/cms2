@@ -60,5 +60,11 @@ class UserController extends Controller
 
         }
     }
+    public function quit(){
+        setcookie('u_id',null);
+        setcookie('token',null);
+        request()->session()->pull('u_token',null);
+        echo '退出成功';
+    }
 
 }
