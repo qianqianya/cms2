@@ -29,7 +29,15 @@ class UserController extends Controller
         curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
         $res=curl_exec($ch);
         curl_close($ch);
-        echo json_encode($res);
+        $res=json_encode($res,true);
+        if($res['error']==0){
+            $res=[
+                'error'=>0,
+                'msg'=>'登陆成功',
+                'token'=>$res['token']
+            ];
+        }
+        return $res;
 
     }
     public function reg(Request $request)
