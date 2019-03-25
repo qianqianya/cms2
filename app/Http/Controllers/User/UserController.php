@@ -60,11 +60,39 @@ class UserController extends Controller
 
         }
     }
-    public function quit(){
-        setcookie('u_id',null);
-        setcookie('token',null);
-        request()->session()->pull('u_token',null);
-        echo '退出成功';
+    public function token()
+    {
+        $data=[
+            'u_id'=>$_POST['u_id'],
+            'token'=>$_POST['token']
+        ];
+        $url="http://passport.qianqianya.xyz/api/token";
+        $ch=curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_POST,true);//文件上传
+        curl_setopt($ch,CURLOPT_POSTFIELDS,$data); //文件上传
+        curl_setopt($ch,CURLOPT_HEADER,0);//不返回头部信息
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);//
+        //抓取url传给浏览器
+        $res=curl_exec($ch);
+        return $res;
+    }
+
+    public function quit()
+    {
+        $data=[
+            'u_id'=>$_POST['u_id']
+        ];
+        $url="http://passport.qianqianya.xyz/api/quit";
+        $ch=curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_POST,true);//文件上传
+        curl_setopt($ch,CURLOPT_POSTFIELDS,$data); //文件上传
+        curl_setopt($ch,CURLOPT_HEADER,0);//不返回头部信息
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);//
+        //抓取url传给浏览器
+        $res=curl_exec($ch);
+        return $res;
     }
 
 }

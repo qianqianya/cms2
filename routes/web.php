@@ -26,4 +26,7 @@ Route::any('/reg', 'User\UserController@reg');
 Route::post('/api', 'User\UserController@login');
 
 //退出
-Route::post('/api', 'User\UserController@login');
+Route::post('/quit', 'User\UserController@quit');
+
+//验证token
+Route::post('/token', 'User\UserController@token');
