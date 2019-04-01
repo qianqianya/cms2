@@ -30,3 +30,6 @@ Route::post('/quit', 'User\UserController@quit');
 
 //验证token
 Route::post('/token', 'User\UserController@token');
+
+//文章
+Route::any('/article', 'Article\ArticleController@article');
